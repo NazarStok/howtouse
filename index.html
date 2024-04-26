@@ -1,0 +1,283 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1">
+	<link rel="stylesheet" href="css/all.css" type="text/css" />
+	<link rel="stylesheet" href="sass/fonts.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-3.2.0.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			<div class="header_centerblock">
+				<div class="nav">
+					<div class="logo">
+						<a href="#">
+							<img src="./images/logo.svg" alt="logo">
+						</a>
+					</div>
+					<ul>
+						<li>
+							<a href="#">About</a>
+						</li>
+						<li>
+							<a href="#">How to use</a>
+						</li>
+						<li>
+							<a href="#">Contacts</a>
+						</li>
+						<li class="hover_li">
+							Partnrers <img src="./images/arrowyellow.svg" alt="">
+							<ul class="nav_hover">
+								<li>1</li>
+								<li>2</li>
+								<li>2</li>
+								<li>2</li>
+								<li>2</li>
+								<li>2</li>
+								<li>2</li>
+							</ul>
+						</li>
+						<div class="lan">
+							<img class="United-Kingdom" src="./images/United-Kingdom 1.svg" alt="ENG">EN <img
+								src="./images/arrowyellow.svg" alt="">
+							<div class="lan_change">
+								UK
+							</div>
+						</div>
+					</ul>
+				</div>
+				<div class="nav_mobile">
+					<div class="logo">
+						<img src="./images/small_logo.svg" alt="">
+					</div>
+					<div class="burger">
+						<nav role='navigation'>
+							<div id="menuToggle">
+								<input type="checkbox" />
+								<span></span>
+								<span></span>
+								<span></span>
+								<ul id="menu">
+									<a href="#">
+										<li>About</li>
+									</a>
+									<a href="#">
+										<li>How to use</li>
+									</a>
+									<a href="#">
+										<li>Contacts</li>
+									</a>
+									<div class="lan">
+										<img class="United-Kingdom" src="./images/United-Kingdom 1.svg" alt="ENG">EN
+										<img src="./images/arrowyellow.svg" alt="">
+										<div class="lan_change">
+											UK
+										</div>
+									</div>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="howtouse">
+			<div id="content">
+				<style>
+					.slider-container {
+						position: relative;
+						max-width: 1100px; /* збільшено максимальну ширину контейнера */
+						margin: auto;
+						overflow: hidden;
+					}
+
+					
+					.slides {
+					  display: flex;
+					  width: 100%; /* Ширина відповідає розміру одного слайда */
+					  transition: transform 0.5s ease-in-out;
+					  overflow: hidden; /* Обмежуємо відображення тільки одного слайда */
+					}
+					.slide {
+					  width: 100%;
+					  display: flex;
+					  justify-content: center;
+					  align-items: center;
+					}
+					.slider-nav {
+					  display: flex;
+					  justify-content: center;
+					  margin-top: 10px;
+					  margin: 100px 0;
+					}
+					.slider-nav button {
+					  background: none;
+					  border: none;
+					  cursor: pointer;
+					  margin: 0 5px;
+					  font-size: 16px;
+					  outline: none;
+					}
+					.slider-text {
+					  position: absolute;
+					  top: 0;
+					  left: 0;
+					  right: 0;
+					  text-align: center;
+					  margin-bottom: 100px;
+					  font-size: 24px;
+					  color: #fff;
+					}
+					.slide img {
+						width: 1100px; /* збільшено максимальний розмір зображення */
+						 /* збільшено максимальну висоту зображення */
+						height: auto;
+					}
+				  </style>
+				  
+				  <div class="slider-container">
+					<div class="slider-text">
+					  <div class="slide-text">Text 1</div>
+					  <div class="slide-text" style="display: none;">Text 2</div>
+					  <div class="slide-text" style="display: none;">Text 3</div>
+					  <div class="slide-text" style="display: none;">Text 4</div>
+					</div>
+					<div class="slider-nav">
+					  <button onclick="showSlide(1)">1</button>
+					  <button onclick="showSlide(2)">2</button>
+					  <button onclick="showSlide(3)">3</button>
+					  <button onclick="showSlide(4)">4</button>
+					</div>
+					<div class="slides">
+					  <div class="slide"><img src="./images/Rectangle 43.svg" alt="Image 1"></div>
+					  <div class="slide"><img src="./images/Rectangle 43.svg" alt="Image 2"></div>
+					  <div class="slide"><img src="./images/Rectangle 43.svg" alt="Image 3"></div>
+					  <div class="slide"><img src="./images/Rectangle 43.svg" alt="Image 4"></div>
+					</div>
+				  </div>
+				  
+				  <script>
+					let slideIndex = 0;
+					const slides = document.querySelectorAll('.slide');
+					const totalSlides = slides.length;
+					const slideTexts = document.querySelectorAll('.slide-text');
+				  
+					function showSlide(n) {
+					  slideIndex = n - 1;
+					  updateSlide();
+					}
+				  
+					function updateSlide() {
+					  slides.forEach((slide, index) => {
+						const offset = (index - slideIndex) * 100;
+						slide.style.transform = `translateX(${offset}%)`;
+						slide.style.transition = 'transform 0.5s ease-in-out';
+					  });
+					  slideTexts.forEach((text, index) => {
+						if (index === slideIndex) {
+						  text.style.display = 'block';
+						} else {
+						  text.style.display = 'none';
+						}
+					  });
+					}
+				  
+					function nextSlide() {
+					  if (slideIndex < totalSlides - 1) {
+						slideIndex++;
+					  } else {
+						slideIndex = 0;
+					  }
+					  updateSlide();
+					}
+				  
+					setInterval(nextSlide, 2000); // автоматичне перелистування кожні 2 секунди
+				  
+					updateSlide();
+				  </script>
+				  
+			</div>
+		</main>
+		<footer>
+			<div class="layout_container">
+				<div class="footer_flex_block">
+					<div class="footer_left_block">
+						<img src="./images/logo.svg" alt="logo">
+						<div class="footer_sosial_block">
+							<a href="#">
+								<img src="./images/fb.svg" alt="sosial">
+							</a>
+							<a href="#">
+								<img src="./images/x.svg" alt="sosial">
+							</a>
+							<a href="#">
+								<img src="./images/inst.svg" alt="sosial">
+							</a>
+							<a href="#">
+								<img src="./images/in.svg" alt="sosial">
+							</a>
+							<a href="#">
+								<img src="./images/tel.svg" alt="sosial">
+							</a>
+							<a href="#">
+								<img src="./images/redit.svg" alt="sosial">
+							</a>
+							<a href="#">
+								<img src="./images/ds.svg" alt="sosial">
+							</a>
+						</div>
+					</div>
+					<div class="footer_right_block">
+						<div class="flex_maintext">
+							<div class="flex_block">
+								<div class="first_text">
+									<p> <a href="#">Company</a></p>
+									<div class="text_block">
+										<a href="#">
+											About
+										</a>
+										<a href="#">
+											Contacts
+										</a>
+									</div>
+								</div>
+								<div class="second_text">
+									<p> <a href="#">Support</a></p>
+									<div class="text_block">
+										<a href="#">
+											How to use
+										</a>
+										<a href="#">
+											FAQ
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="text">
+								Do you want to make operations with <span>Swaponix</span> as handy as possible? Add it
+								to bookmarks in one click!
+							</div>
+							<div class="flex_block">
+								<div class="Terms_of_Use">
+									<a href="#">Terms of Use</a>
+								</div>
+								<div class="Privacy_Policy">
+									<a href="#">Privacy Policy</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</footer>
+	</div>
+</body>
+
+</html>
